@@ -1,26 +1,29 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
-type User struct {
-	name string
+type Circle struct {
+	height int
 }
-type reader interface {
-	Get()
-	GetByID()
+type Rect struct {
+	height, width int
+}
+type calculator interface {
+	calculate() int
 }
 
 func main() {
-	u := User{name: "prashant"}
-	u.Get()
-	u.GetByID()
+	// r := Rect{height: 10, width: 10}
+	c := Circle{height: 100}
+	fmt.Println("area is", print(c))
 }
-func (u User) Get() {
-	fmt.Println("get func is called", u.name)
+func (c Circle) calculate() int {
+	return c.height * 2
 }
 
-func (u User) GetByID() {
-	fmt.Println("getByID func is called", u.name)
+func (r Rect) calculate() int {
+	return r.height * r.width
+}
+func print(c calculator) int {
+	return c.calculate()
 }
