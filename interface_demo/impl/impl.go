@@ -7,3 +7,9 @@ type User struct {
 func (u User) Find() string {
 	return u.Name
 }
+func (u User) GetProducts() string {
+	return u.Name
+}
+func (u User) Add() string {
+	return u.Name
+}
